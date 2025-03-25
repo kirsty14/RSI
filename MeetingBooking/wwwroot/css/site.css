@@ -1,0 +1,238 @@
+/* General CSS */
+
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
+  color: var(--bs-secondary-color);
+  text-align: end;
+}
+
+.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
+  text-align: start;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 20px;
+}
+
+h2 {
+  font-size: 1.2em;
+  margin: 0;
+}
+
+/* Status CSS */
+
+.status {
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 0.9em;
+  color: white;
+}
+
+.status.active {
+  background-color: green;
+}
+
+.status.maintenance {
+  background-color: orange;
+}
+
+/* Facility CSS */
+
+.facilities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.facility {
+  background: #e0e0e0;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 0.9em;
+  display: flex;
+  align-items: center;
+}
+
+.facility i {
+  margin-right: 5px;
+}
+
+/* Room CSS */
+
+.room-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.room-list {
+display: flex;
+flex-wrap: wrap;
+gap: 20px;  
+}
+
+.room {
+width: calc(33.33% - 20px); 
+box-sizing: border-box; 
+}
+
+@media (max-width: 768px) {
+.room {
+    width: calc(50% - 20px);  
+}
+}
+
+@media (max-width: 480px) {
+.room {
+    width: 100%;  
+}
+}
+
+.room {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
+
+.room-image {
+  height: 100px;
+  background: lightgray;
+  border-radius: 8px;
+}
+
+.room-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.room-image {
+  width: 100%;
+  height: 200px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: grey; 
+}
+
+.room-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Calendar CSS */
+
+.calendar {
+  border: 2px solid #ccc;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+.month-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.nav-arrow {
+  font-size: 24px;
+  text-decoration: none;
+  color: #333;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: 10px;
+}
+
+.day {
+  width: 40px;
+  height: 40px;
+  background-color: #e0e0e0;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.day:hover {
+  background-color: #ddd;
+}
+
+.event-day {
+  background-color: black;
+  color: white;
+}
+
+.no-event {
+  background-color: lightgray;
+}
+
+.days-of-week {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.days-of-week span {
+  text-align: center;
+  padding: 5px 0;
+}
+
+.empty-day {
+  visibility: hidden;
+}
+
+/* Calendar time slots CSS */
+.day {
+  padding: 10px;
+  border-radius: 5px;
+  margin: 2px;
+}
+
+.available-day {
+  background-color: black;
+  color: white;
+}
+
+.no-event {
+  background-color: grey;
+  color: lightgrey;
+}

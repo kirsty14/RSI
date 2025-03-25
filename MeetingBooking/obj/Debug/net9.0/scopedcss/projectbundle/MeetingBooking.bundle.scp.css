@@ -1,0 +1,147 @@
+/* _content/MeetingBooking/Views/Shared/_Layout.cshtml.rz.scp.css */
+/* Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand[b-h9o0khgp2l] {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+a[b-h9o0khgp2l] {
+  color: #0077cc;
+}
+
+.btn-primary[b-h9o0khgp2l] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active[b-h9o0khgp2l], .nav-pills .show > .nav-link[b-h9o0khgp2l] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.border-top[b-h9o0khgp2l] {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom[b-h9o0khgp2l] {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow[b-h9o0khgp2l] {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy[b-h9o0khgp2l] {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+.footer[b-h9o0khgp2l] {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;
+}
+
+body[b-h9o0khgp2l] {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 20px;
+}
+
+.room-list[b-h9o0khgp2l] {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.room-list[b-h9o0khgp2l] {
+display: flex;
+flex-wrap: wrap;
+gap: 20px;  /* Adjust the space between the rooms */
+}
+
+.room[b-h9o0khgp2l] {
+width: calc(33.33% - 20px);  /* Adjust width to fit 3 items per row with gap */
+box-sizing: border-box;  /* Ensure padding/margin doesn't affect the width calculation */
+}
+
+@media (max-width: 768px) {
+.room[b-h9o0khgp2l] {
+    width: calc(50% - 20px);  /* On smaller screens, show 2 rooms per row */
+}
+}
+
+@media (max-width: 480px) {
+.room[b-h9o0khgp2l] {
+    width: 100%;  /* On very small screens, show 1 room per row */
+}
+}
+
+.room[b-h9o0khgp2l] {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
+
+.room-image[b-h9o0khgp2l] {
+  height: 100px;
+  background: lightgray;
+  border-radius: 8px;
+}
+
+.room-header[b-h9o0khgp2l] {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+h2[b-h9o0khgp2l] {
+  font-size: 1.2em;
+  margin: 0;
+}
+
+.status[b-h9o0khgp2l] {
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 0.9em;
+  color: white;
+}
+
+.status.active[b-h9o0khgp2l] {
+  background-color: green;
+}
+
+.status.maintenance[b-h9o0khgp2l] {
+  background-color: orange;
+}
+
+.facilities[b-h9o0khgp2l] {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.facility[b-h9o0khgp2l] {
+  background: #e0e0e0;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 0.9em;
+  display: flex;
+  align-items: center;
+}
+
+.facility i[b-h9o0khgp2l] {
+  margin-right: 5px;
+}

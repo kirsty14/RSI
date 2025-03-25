@@ -1,0 +1,66 @@
+﻿@using System.Globalization
+
+@{
+    ViewData["Title"] = "Booking Meeting Room.";
+}
+<h1>@ViewData["Title"]</h1>
+
+@model CalendarModel
+
+<div class="calendar">
+    <div class="month-navigation">
+        <a href="@Url.Action("BookMeetingRoom", "Home", new { year = Model.Month == 1 ? Model.Year - 1 : Model.Year, month = Model.Month == 1 ? 12 : Model.Month - 1 })"
+            class="nav-arrow">←</a>
+
+        <h2>@System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(Model.Month) @Model.Year</h2>
+
+        <a href="@Url.Action("BookMeetingRoom", "Home", new { year = Model.Month == 12 ? Model.Year + 1 : Model.Year, month = Model.Month == 12 ? 1 : Model.Month + 1 })"
+            class="nav-arrow">→</a>
+    </div>
+
+    <div class="days-of-week">
+        <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+    </div>
+
+ <form method="post" asp-action="UpdateSelectedDate" asp-controller="HomeController">
+    <div class="calendar-grid">
+        @for (int i = 1; i <= DateTime.DaysInMonth(Model.Year, Model.Month); i++)
+        {
+            var currentDate = new DateTime(Model.Year, Model.Month, i);
+            var isEventDay = Model.DaysWithEvents != null && Model.DaysWithEvents.Any(d => d.Date == currentDate.Date);
+            var hasAvailableSlots = Model.AvailableSlots != null &&
+                                    Model.AvailableSlots.ContainsKey(currentDate) &&
+                                    Model.AvailableSlots[currentDate] != null &&
+                                    Model.AvailableSlots[currentDate].Any();
+
+            <div class="day-container">
+                <button
+                    type="submit"
+                    name="selectedDate"
+                    value="@currentDate.ToString("yyyy-MM-dd")"
+                    class="day @(isEventDay ? (hasAvailableSlots ? "available-day" : "no-event") : "no-event")">
+                    @i
+                </button>
+            </div>
+        }
+    </div>
+</form>
+
+
+    <div class="time-slot-container">
+        @if (Model.AvailableSlots != null && Model.AvailableSlots.ContainsKey(Model.SelectedDate))
+        {
+            var slots = Model.AvailableSlots[Model.SelectedDate];
+
+            @foreach (var slot in slots)
+            {
+                <button class="time-slot">@slot</button>
+            }
+        }
+        else
+        {
+            <p>Select a date to see available time slots.</p>
+        }
+    </div>
+
+</div>

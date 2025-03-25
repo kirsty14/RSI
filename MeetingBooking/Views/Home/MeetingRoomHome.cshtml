@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+@model List<Room>
+
+@{
+    var facilityIcons = new Dictionary<string, string>
+    {
+        { "WiFi", "fas fa-wifi" },
+        { "Whiteboard", "fas fa-chalkboard" },
+        { "TV", "fas fa-tv" },
+        { "Projector", "fas fa-projector" },
+        { "Conference Phone", "fas fa-phone" },
+        { "Idea Board", "fas fa-lightbulb" },
+        { "Coffee Machine", "fas fa-coffee" },
+        { "Sofas", "fas fa-couch" },
+        { "Microphone", "fas fa-microphone" },
+        { "Desks", "fas fa-desktop" }
+    };
+}
+
+<div class="room-list">
+    @foreach (var room in Model)
+    {
+        <div class="room">
+            <div class="room-image">
+                <img src="@room.URL" />
+            </div>
+
+            <div class="room-content">
+                <div class="room-header">
+                    <h2>@room.Name</h2>
+                    <span class="status @(room.Status == "active" ? "active" : "maintenance")">
+                        @(room.Status == "active" ? "Active" : "Maintenance")
+                    </span>
+                </div>
+                <p>@room.Description</p>
+                <div class="facilities">
+                    @foreach (var facility in room.Facilities)
+                    {
+                        var iconClass = facilityIcons.ContainsKey(facility) ? facilityIcons[facility] : "fas fa-cogs"; 
+                        <div class="facility">
+                            <i class="@iconClass"></i> @facility
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
